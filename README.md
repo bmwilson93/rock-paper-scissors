@@ -33,3 +33,13 @@ console.log(playRound(playerSelection, computerSelection));
     
     5. Feel free to create more “helper” functions if you think it would be useful.
 
+
+
+Problem Solving -
+create a function called computerPlay
+    randomly return Rock Paper or Scissors
+
+    generate a random number
+    if 1 then Rock
+    if 2 then Scissors
+    else Paper
