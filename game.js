@@ -53,21 +53,11 @@ function playRound (playerSelection, computerSelection) {
 
 
 function game() {
-    // play 5 rounds and report a winner
-    // define a player and a computer score var
-
-    // begin loop
-    // use window.prompt()
-    // check that the input is good
-    // call playRound
-    // display the return from playRound
-    // loop
-
-    // at end of loop check scores and display winner
-
+    // define score vars
     let playerScore = 0
     let computerScore = 0
 
+    // play 5 rounds and report a winner
     for (i = 0; i < 5; i++) {
         // get the player and the computer selections
         let playerSelection = prompt('Make a selection')
@@ -102,8 +92,3 @@ function game() {
         console.log("It was a draw.")
     }
 }
-
-//test
-//const playerSelection = "paper"
-//const computerSelection = computerPlay()
-//console.log(playRound(playerSelection, computerSelection))

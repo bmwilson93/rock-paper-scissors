@@ -1,6 +1,7 @@
 The Odin Project - Javascript Practice
 Rock Paper Scissors
 
+Assignment:
 1. Start a new Git repo for your project.
 
 2. Create a blank HTML document with a script tag (Hint: it is best practice to link an external .js file). This game is going to be played completely from the console, so don’t worry about putting anything else in there.
@@ -32,14 +33,5 @@ console.log(playRound(playerSelection, computerSelection));
     4. Feel free to re-work your previous functions if you need to. Specifically, you might want to change the return value to something more useful.
     
     5. Feel free to create more “helper” functions if you think it would be useful.
-
-
-
-Problem Solving -
-create a function called computerPlay
-    randomly return Rock Paper or Scissors
-
-    generate a random number
-    if 1 then Rock
-    if 2 then Scissors
-    else Paper
+    
+    
