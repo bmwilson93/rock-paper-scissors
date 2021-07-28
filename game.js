@@ -51,6 +51,59 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = "paper"
-const computerSelection = computerPlay()
-console.log(playRound(playerSelection, computerSelection))
+
+function game() {
+    // play 5 rounds and report a winner
+    // define a player and a computer score var
+
+    // begin loop
+    // use window.prompt()
+    // check that the input is good
+    // call playRound
+    // display the return from playRound
+    // loop
+
+    // at end of loop check scores and display winner
+
+    let playerScore = 0
+    let computerScore = 0
+
+    for (i = 0; i < 5; i++) {
+        // get the player and the computer selections
+        let playerSelection = prompt('Make a selection')
+        let computerSelection = computerPlay()
+
+        // splay the round and store the result
+        let result = playRound(playerSelection, computerSelection)
+
+        // check for the winner to add to score
+        if (result.includes("win")) {
+            playerScore += 1
+        }
+        else if (result.includes("lose")) {
+            computerScore += 1
+        }
+
+        // output the result to console
+        console.log(result)
+    }
+
+    // check the scores to display a winner
+    console.log("Your score: " + playerScore)
+    console.log("Computer score: " + computerScore)
+
+    if (playerScore > computerScore) {
+        console.log("You win!")
+    }
+    else if (computerScore > playerScore) {
+        console.log("You lost. :(")
+    }
+    else { // Draw
+        console.log("It was a draw.")
+    }
+}
+
+//test
+//const playerSelection = "paper"
+//const computerSelection = computerPlay()
+//console.log(playRound(playerSelection, computerSelection))
