@@ -4,6 +4,7 @@
 let playerScore = 0;
 let computerScore = 0;
 
+
 function computerPlay () {
     let rand = Math.floor(Math.random() * 3); //generate int 0, 1, or 2
     
@@ -21,14 +22,15 @@ function computerPlay () {
 
 function playRound (playerSelection, computerSelection) {
     // convert the playerSelection to all lowercase
-    playerSelection = playerSelection.toLowerCase()
+    playerSelection = playerSelection.toLowerCase();
     
     // test the playerSelection against the computerSelection
     let winner = "none";
     // same choice
     if (playerSelection === computerSelection) {
-        winner = "neither"
-        return "It's a Draw!"
+        winner = "neither";
+        displayRound("It's a Draw!");
+        //return "It's a Draw!"
     }
     
     // TODO change the returns to call displayRound(message)
@@ -36,32 +38,44 @@ function playRound (playerSelection, computerSelection) {
         case "rock":
             if (computerSelection === "paper") {
                 winner = "computer";
-                return "You lose. Paper beats Rock."
+                displayRound("You lose. Paper beats Rock.");
+                break;
+                //return "You lose. Paper beats Rock."
             }
             else { // Scissors
                 winner = "player";
-                return "You win! Rock beats Scissors."
+                displayRound("You win! Rock beats Scissors.");
+                break;
+                //return "You win! Rock beats Scissors."
             }
         case "paper":
             if (computerSelection === "rock") {
                 winner = "player";
-                return "You win! Paper beats Rock."
+                displayRound("You win! Paper beats Rock.");
+                break;
+                //return "You win! Paper beats Rock."
             }
             else { // Scissors
                 winner = "computer";
-                return "You lose. Scissors beats Paper."
+                displayRound("You lose. Scissors beats Paper.");
+                break;
+                //return "You lose. Scissors beats Paper."
             }
         case "scissors":
             if (computerSelection === "rock") {
                 winner = "computer";
-                return "You lose. Rock beats Scissors."
+                displayRound("You lose. Rock beats Scissors.");
+                break;
+                //return "You lose. Rock beats Scissors."
             }
             else { // Paper
                 winner = "player";
-                return "You win! Scissors beats Paper."
+                displayRound("You win! Scissors beats Paper.");
+                break;
+                //return "You win! Scissors beats Paper."
             }
         default: // Error with player choice
-            "There seems to be something wrong with your choice."
+            console.log("It was a draw, or there was a problem.")
     }
 
     // winner is set, call the checkGame function
@@ -90,11 +104,18 @@ function checkGame(winner) {
         default:
             console.log("no winner")
     }
+
+    // display the updated score to the player
+    
 }
 
-// TODO impliment displayRound
-function displayRound(message) {
+// store the round-message from index.html
+const roundMessage = document.querySelector('.round-message');
 
+// Displays the results of the round
+function displayRound(message) {
+    console.log(message);
+    roundMessage.textContent = message;
 }
 
 function game() {
@@ -138,7 +159,7 @@ function game() {
 }
 
 // Event listeners
-const buttons = document.querySelectorAll('.play-buttons');
+const buttons = document.querySelectorAll('.play-buttons button');
 const newGameBtn = document.querySelector('#new-game-button')
 const btnContainer = document.querySelector('.play-buttons');
 
@@ -154,7 +175,7 @@ newGameBtn.addEventListener('click', function () {
     // and start the game
     newGameBtn.classList.add("invisible");
     btnContainer.classList.remove("invisible");
-
+    newGame()
 });
 
 /*
