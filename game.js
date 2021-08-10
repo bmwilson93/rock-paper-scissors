@@ -85,6 +85,14 @@ function newGame() {
     // reset the scores to 0
     playerScore = 0;
     computerScore = 0;
+
+    // default the displays
+    roundMessage.textContent = "The results of the round will appear here.";
+    playerChoice.textContent = "None";
+    computerChoice.textContent = "None";
+
+    playerScoreDisplay.textContent = "0";
+    computerScoreDisplay.textContent = "0";
 }
 
 // TODO impliment checkGame
