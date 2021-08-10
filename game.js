@@ -18,7 +18,7 @@ function playRound (playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase()
     
     // test the playerSelection against the computerSelection
-
+    console.log(playerSelection);
     // same choice
     if (playerSelection === computerSelection) {
         return "It's a Draw!"
@@ -93,10 +93,24 @@ function game() {
 }
 
 // Event listeners
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.textContent, computerPlay());
+    })
+});
+
+/*
 const rockBtn = document.querySelector('#rock-button');
 const paperBtn = document.querySelector('#paper-button');
 const scissorsBtn = document.querySelector('#scissors-button');
 
-rockBtn.addEventListener('click', playRound("Rock"));
-paperBtn.addEventListener('click', playRound("Paper"));
-scissorsBtn.addEventListener('click', playRound("Scissors"));
+rockBtn.addEventListener('click', playRound("Rock", computerPlay()));
+paperBtn.addEventListener('click', playRound("Paper", computerPlay()));
+scissorsBtn.addEventListener('click', playRound("Scissors", computerPlay()));
+
+console.log(rockBtn)
+console.log(paperBtn)
+console.log(scissorsBtn)
+*/
