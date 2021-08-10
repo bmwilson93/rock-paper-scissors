@@ -4,6 +4,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
+const playerScoreDisplay = document.querySelector('#player-score');
+const computerScoreDisplay = document.querySelector('#computer-score');
 
 function computerPlay () {
     let rand = Math.floor(Math.random() * 3); //generate int 0, 1, or 2
@@ -31,60 +33,59 @@ function playRound (playerSelection, computerSelection) {
         winner = "neither";
         displayRound("It's a Draw!", playerSelection, computerSelection);
         //return "It's a Draw!"
+    } else {
+        switch (playerSelection) {
+            case "rock":
+                if (computerSelection === "paper") {
+                    winner = "computer";
+                    displayRound("You lose. Paper beats Rock.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You lose. Paper beats Rock."
+                }
+                else { // Scissors
+                    winner = "player";
+                    displayRound("You win! Rock beats Scissors.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You win! Rock beats Scissors."
+                }
+            case "paper":
+                if (computerSelection === "rock") {
+                    winner = "player";
+                    displayRound("You win! Paper beats Rock.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You win! Paper beats Rock."
+                }
+                else { // Scissors
+                    winner = "computer";
+                    displayRound("You lose. Scissors beats Paper.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You lose. Scissors beats Paper."
+                }
+            case "scissors":
+                if (computerSelection === "rock") {
+                    winner = "computer";
+                    displayRound("You lose. Rock beats Scissors.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You lose. Rock beats Scissors."
+                }
+                else { // Paper
+                    winner = "player";
+                    displayRound("You win! Scissors beats Paper.",
+                        playerSelection, computerSelection);
+                    break;
+                    //return "You win! Scissors beats Paper."
+                }
+            default: // Error with player choice
+                console.log("It was a draw, or there was a problem.")
+        }
     }
     
-    // TODO change the returns to call displayRound(message)
-    switch (playerSelection) {
-        case "rock":
-            if (computerSelection === "paper") {
-                winner = "computer";
-                displayRound("You lose. Paper beats Rock.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You lose. Paper beats Rock."
-            }
-            else { // Scissors
-                winner = "player";
-                displayRound("You win! Rock beats Scissors.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You win! Rock beats Scissors."
-            }
-        case "paper":
-            if (computerSelection === "rock") {
-                winner = "player";
-                displayRound("You win! Paper beats Rock.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You win! Paper beats Rock."
-            }
-            else { // Scissors
-                winner = "computer";
-                displayRound("You lose. Scissors beats Paper.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You lose. Scissors beats Paper."
-            }
-        case "scissors":
-            if (computerSelection === "rock") {
-                winner = "computer";
-                displayRound("You lose. Rock beats Scissors.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You lose. Rock beats Scissors."
-            }
-            else { // Paper
-                winner = "player";
-                displayRound("You win! Scissors beats Paper.",
-                     playerSelection, computerSelection);
-                break;
-                //return "You win! Scissors beats Paper."
-            }
-        default: // Error with player choice
-            console.log("It was a draw, or there was a problem.")
-    }
-
-    // winner is set, call the checkGame function
+    // round winner is set, call the checkGame function
     checkGame(winner);
 }
 
@@ -112,7 +113,8 @@ function checkGame(winner) {
     }
 
     // display the updated score to the player
-
+    playerScoreDisplay.textContent = playerScore;
+    computerScoreDisplay.textContent = computerScore;
 }
 
 // store the round-message from index.html
