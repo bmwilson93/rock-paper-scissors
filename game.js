@@ -56,28 +56,26 @@ function game() {
     // define score vars
     let playerScore = 0
     let computerScore = 0
+    
+    // get the player and the computer selections
+    let playerSelection = aaa // Get the player selection based on the selected button
+    let computerSelection = computerPlay()
 
-    // play 5 rounds and report a winner
-    for (i = 0; i < 5; i++) {
-        // get the player and the computer selections
-        let playerSelection = prompt('Make a selection')
-        let computerSelection = computerPlay()
+    // play the round and store the result
+    let result = playRound(playerSelection, computerSelection)
 
-        // splay the round and store the result
-        let result = playRound(playerSelection, computerSelection)
-
-        // check for the winner to add to score
-        if (result.includes("win")) {
-            playerScore += 1
-        }
-        else if (result.includes("lose")) {
-            computerScore += 1
-        }
-
-        // output the result to console
-        console.log(result)
+    // check for the winner to add to score
+    if (result.includes("win")) {
+        playerScore += 1
+    }
+    else if (result.includes("lose")) {
+        computerScore += 1
     }
 
+    // output the result to console
+    console.log(result)
+
+    /* Remove the 5 round result for now
     // check the scores to display a winner
     console.log("Your score: " + playerScore)
     console.log("Computer score: " + computerScore)
@@ -90,5 +88,15 @@ function game() {
     }
     else { // Draw
         console.log("It was a draw.")
-    }
+    } 
+    */
 }
+
+// Event listeners
+const rockBtn = document.querySelector('#rock-button');
+const paperBtn = document.querySelector('#paper-button');
+const scissorsBtn = document.querySelector('#scissors-button');
+
+rockBtn.addEventListener('click', playRound("Rock"));
+paperBtn.addEventListener('click', playRound("Paper"));
+scissorsBtn.addEventListener('click', playRound("Scissors"));
