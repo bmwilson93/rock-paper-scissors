@@ -116,12 +116,12 @@ function checkGame(winner) {
     if (computerScore === 5) {
         // game over, player loses
         btnContainer.classList.add('invisible');
-        newGameBtn.classList.remove('invisible');
+        newGameBtnContainer.classList.remove('invisible');
         alert("The game is over. You lose. :( ");
     } else if (playerScore === 5) {
         // game over, player wins
         btnContainer.classList.add('invisible');
-        newGameBtn.classList.remove('invisible');
+        newGameBtnContainer.classList.remove('invisible');
         alert("The game is over. You win! :) ");
     }
 }
@@ -140,7 +140,8 @@ function displayRound(message, playChoice, comChoice) {
 
 // Event listeners
 const buttons = document.querySelectorAll('.play-buttons button');
-const newGameBtn = document.querySelector('#new-game-button')
+const newGameBtnContainer = document.querySelector('.new-game');
+const newGameBtn = document.querySelector('#new-game-button');
 const btnContainer = document.querySelector('.play-buttons');
 
 buttons.forEach((button) => {
@@ -150,7 +151,7 @@ buttons.forEach((button) => {
 });
 
 newGameBtn.addEventListener('click', function () {
-    newGameBtn.classList.add("invisible");
+    newGameBtnContainer.classList.add("invisible");
     btnContainer.classList.remove("invisible");
     newGame()
 });
