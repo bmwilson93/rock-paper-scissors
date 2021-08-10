@@ -95,14 +95,8 @@ function newGame() {
     computerScoreDisplay.textContent = "0";
 }
 
-// TODO impliment checkGame
 function checkGame(winner) {
-    // check the results of playRound()
-    // if didWin == "none", "computer", "plyaer", or "neither"
     // update the score
-    // display the updated score
-    // check if one player has score of 5
-    // if yes, then end game
     switch(winner) {
         case "computer":
             computerScore += 1;
@@ -144,52 +138,11 @@ function displayRound(message, playChoice, comChoice) {
     roundMessage.textContent = message;
 }
 
-function game() {
-    // define score vars
-    let playerScore = 0
-    let computerScore = 0
-    
-    // get the player and the computer selections
-    //let playerSelection = aaa // Get the player selection based on the selected button
-    //let computerSelection = computerPlay()
-
-    // play the round and store the result
-    //let result = playRound(playerSelection, computerSelection)
-
-    // check for the winner to add to score
-    if (result.includes("win")) {
-        playerScore += 1
-    }
-    else if (result.includes("lose")) {
-        computerScore += 1
-    }
-
-    // output the result to console
-    console.log(result)
-
-    /* Remove the 5 round result for now
-    // check the scores to display a winner
-    console.log("Your score: " + playerScore)
-    console.log("Computer score: " + computerScore)
-
-    if (playerScore > computerScore) {
-        console.log("You win!")
-    }
-    else if (computerScore > playerScore) {
-        console.log("You lost. :(")
-    }
-    else { // Draw
-        console.log("It was a draw.")
-    } 
-    */
-}
-
 // Event listeners
 const buttons = document.querySelectorAll('.play-buttons button');
 const newGameBtn = document.querySelector('#new-game-button')
 const btnContainer = document.querySelector('.play-buttons');
 
-// Play buttons event listener
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         playRound(button.textContent, computerPlay()); // passes the context of the button text as the selection
@@ -197,23 +150,7 @@ buttons.forEach((button) => {
 });
 
 newGameBtn.addEventListener('click', function () {
-    // hide the new game button, show the play buttons
-    // and start the game
     newGameBtn.classList.add("invisible");
     btnContainer.classList.remove("invisible");
     newGame()
 });
-
-/*
-const rockBtn = document.querySelector('#rock-button');
-const paperBtn = document.querySelector('#paper-button');
-const scissorsBtn = document.querySelector('#scissors-button');
-
-rockBtn.addEventListener('click', playRound("Rock", computerPlay()));
-paperBtn.addEventListener('click', playRound("Paper", computerPlay()));
-scissorsBtn.addEventListener('click', playRound("Scissors", computerPlay()));
-
-console.log(rockBtn)
-console.log(paperBtn)
-console.log(scissorsBtn)
-*/
