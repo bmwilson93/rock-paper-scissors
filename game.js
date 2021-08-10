@@ -97,7 +97,7 @@ const buttons = document.querySelectorAll('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        playRound(button.textContent, computerPlay());
+        playRound(button.textContent, computerPlay()); // passes the context of the button text as the selection
     })
 });
 
