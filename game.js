@@ -29,7 +29,7 @@ function playRound (playerSelection, computerSelection) {
     // same choice
     if (playerSelection === computerSelection) {
         winner = "neither";
-        displayRound("It's a Draw!");
+        displayRound("It's a Draw!", playerSelection, computerSelection);
         //return "It's a Draw!"
     }
     
@@ -38,39 +38,45 @@ function playRound (playerSelection, computerSelection) {
         case "rock":
             if (computerSelection === "paper") {
                 winner = "computer";
-                displayRound("You lose. Paper beats Rock.");
+                displayRound("You lose. Paper beats Rock.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You lose. Paper beats Rock."
             }
             else { // Scissors
                 winner = "player";
-                displayRound("You win! Rock beats Scissors.");
+                displayRound("You win! Rock beats Scissors.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You win! Rock beats Scissors."
             }
         case "paper":
             if (computerSelection === "rock") {
                 winner = "player";
-                displayRound("You win! Paper beats Rock.");
+                displayRound("You win! Paper beats Rock.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You win! Paper beats Rock."
             }
             else { // Scissors
                 winner = "computer";
-                displayRound("You lose. Scissors beats Paper.");
+                displayRound("You lose. Scissors beats Paper.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You lose. Scissors beats Paper."
             }
         case "scissors":
             if (computerSelection === "rock") {
                 winner = "computer";
-                displayRound("You lose. Rock beats Scissors.");
+                displayRound("You lose. Rock beats Scissors.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You lose. Rock beats Scissors."
             }
             else { // Paper
                 winner = "player";
-                displayRound("You win! Scissors beats Paper.");
+                displayRound("You win! Scissors beats Paper.",
+                     playerSelection, computerSelection);
                 break;
                 //return "You win! Scissors beats Paper."
             }
@@ -106,15 +112,18 @@ function checkGame(winner) {
     }
 
     // display the updated score to the player
-    
+
 }
 
 // store the round-message from index.html
 const roundMessage = document.querySelector('.round-message');
+const playerChoice = document.querySelector('#player-choice');
+const computerChoice = document.querySelector('#computer-choice');
 
 // Displays the results of the round
-function displayRound(message) {
-    console.log(message);
+function displayRound(message, playChoice, comChoice) {
+    playerChoice.textContent = playChoice;
+    computerChoice.textContent = comChoice;
     roundMessage.textContent = message;
 }
 
