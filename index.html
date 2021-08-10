@@ -23,7 +23,7 @@
                 padding: 1em;
                 font-size: 1.5em;
             }
-            .results {
+            .choices {
                 display: flex;
                 gap: 4em;
             }
@@ -51,6 +51,7 @@
             <div class="new-game game-buttons ">
                 <button id="new-game-button">New Game</button>
             </div>
+
             <div class="game-buttons play-buttons invisible">
                 <button id="rock-button">Rock</button>
                 <button id="paper-button">Paper</button>
@@ -58,20 +59,39 @@
             </div>
 
             <div class="results">
+                
+                <div class="choices">
+                    <div class="choice">
+                        <h3>Your Choice</h3>
+                        <p>test</p>
+                    </div>
+                    <div class="choice">
+                        <h3>Opponent Choice</h3>
+                        <p>test</p>
+                    </div>
+                </div> <!-- choices end -->
 
-                <div class="choice">
-                    <h3>Your Choice</h3>
-                    <p>test</p>
+                <div class="round-message">
+                    <p>This is test text for the round result</p>
                 </div>
-                <div class="choice">
-                    <h3>Opponent Choice</h3>
-                    <p>test</p>
-                </div>
+
+                <div class="score-box">
+                    <h3>Score</h3>
+                    <table>
+                        <tr>
+                            <td>Player</td>
+                            <td id="player-score">world</td>
+                        </tr>
+                        <tr>
+                            <td>Computer</td>
+                            <td id="computer-score">3</td>
+                        </tr>
+                    </table>
+                </div> <!-- scorebox end -->
+
             </div> <!-- results end -->
 
-            <div class="round-message">
-                <p>This is test text for the round result</p>
-            </div>
+            
 
         </div> <!-- wrapper end -->
          <script src="game.js"></script>
